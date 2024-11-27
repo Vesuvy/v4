@@ -1,0 +1,38 @@
+﻿<Window x:Class="Var4.Views.AddDishWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Var4.Views"
+        xmlns:vm="clr-namespace:Var4.ViewModels"
+        mc:Ignorable="d"
+        Title="AddDishWindow" Height="450" Width="400">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="15">
+            <TextBlock Text="Название" />
+            <TextBox 
+                Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10" Height="25"/>
+            <TextBlock Text="Вес" />
+            <TextBox 
+                 Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10" Height="25"/>
+            <TextBlock Text="Категория (1-9)" />
+            <ComboBox 
+                ItemsSource="{Binding Categories}"
+                DisplayMemberPath="Title"
+                SelectedValuePath="Id"
+                SelectedValue="{Binding CategoryId, UpdateSourceTrigger=PropertyChanged}"
+                Margin="0 0 0 10"
+                />
+            <TextBlock Text="Цена" />
+            <TextBox 
+                Text="{Binding Cost, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10" Height="25"/>
+            <TextBlock Text="Доступность (да\нет)" />
+            <TextBox 
+                 Text="{Binding Availability, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10" Height="25"/>
+
+            <Button Content="Добавить"
+                Command="{Binding FinishAddDishCommand}" Height="30"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
